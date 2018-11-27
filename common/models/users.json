@@ -1,0 +1,65 @@
+{
+  "name": "stu",
+  "plural": "stus",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "test",
+      "table": "stu"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+       "mysql": {
+        "columnName": "id",
+        "dataType": "number",
+        "dataLength": 11,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "name",
+        "dataType": "string",
+        "dataLength": 45,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "phone_number": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "columnName": "phone_number",
+        "dataType": "string",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "email_id": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "columnName": "email_id",
+        "dataType": "string",
+        "dataLength": 45,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
