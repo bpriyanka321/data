@@ -2,7 +2,7 @@
 
 module.exports = function (STU) {
 
-    /* STU.getName = function (id, callback) {
+     /*STU.getName = function (id, callback) {
          console.log(id);
          STU.findgetName(id, function (err, instance) {
              var response = "name of the student is:" + instance.name;
@@ -55,7 +55,7 @@ module.exports = function (STU) {
    
    
        )
-       };
+       };*/
    
    
       /* STU.count=function(name,callback){
@@ -88,7 +88,9 @@ module.exports = function (STU) {
        )
    
    };*/
-    /*STU.delete=function(id,callbacck){
+
+
+   /* STU.delete=function(id,callbacck){
         console.log(id);
         STU.findById(id,function(err,instance){
             var response=instance.delete+"deleted record";
@@ -115,6 +117,8 @@ module.exports = function (STU) {
         }
     )
     };*/
+
+
     /*STU.getId=function(id,callbacck){
         
         STU.findOne({where:{email_id:"ramya@gmail.com"}},function(err,instance){
@@ -142,6 +146,8 @@ module.exports = function (STU) {
         }
     )
     };*/
+
+
     STU.updateName = function (input, callback) {
         STU.findById(input.id, function (err, response) {
             var updateObj = response;
@@ -177,6 +183,3 @@ module.exports = function (STU) {
         }
     )
 }
-STU.update = function (input, callback) {
-    STU.create(input.id, function (err, response) {
-
