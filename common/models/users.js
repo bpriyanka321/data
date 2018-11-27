@@ -177,4 +177,6 @@ module.exports = function (STU) {
         }
     )
 }
+STU.update = function (input, callback) {
+    STU.create(input.id, function (err, response) {
 
