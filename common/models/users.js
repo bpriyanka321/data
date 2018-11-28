@@ -2,9 +2,9 @@
 
 module.exports = function (STU) {
 
-     /*STU.getName = function (id, callback) {
+     STU.getName = function (id, callback) {
          console.log(id);
-         STU.findgetName(id, function (err, instance) {
+         STU.findById(id, function (err, instance) {
              var response = "name of the student is:" + instance.name;
              console.log(response);
              callback(null, response);
@@ -27,128 +27,43 @@ module.exports = function (STU) {
  
  
      )
-     }*/
+     }
 
 
-    /* STU.getId = function (name, callback) {
-           
-           STU.findOne({where:{name:"ramya"}},function (err, instance) {
-               var response = "id of the student is:" + instance.id;
-               console.log(response);
-               callback(null, response);
-           });
-       }
-       STU.remoteMethod(
-           'getId',
-           {
-               returns: { root: true, type: 'number' },
-               accepts: [{
-                   arg: 'name',
-                   type: 'string',
-                   required: false,
-                   http: {
-                       source: 'query'
-                   }
-               }],
-               http: { path: '/getId', verb: 'get' },
-           }
-   
-   
-       )
-       };*/
-   
-   
-      /* STU.count=function(name,callback){
-           STU.findByName(name,function(err,instance){
-               var response="no of students are:"+instance.count;
-               console.log(response);
-               callback(null,response);
-           });
-   
-       }
-       STU.remoteMethod(
-           'count',{
-               returns:
-                {
-                    root:true,
-                    type:"number"
-                },
-               accepts:
-              {
-                   arg:'name',
-                  type:'string',
-                  required:false
-                },
-               
-                   
-   
-                   http:{path:'/count',verb:'get'},
-               }
-   
-       )
-   
-   };*/
 
+    /* STU.getRecord = function (name, callback) {
+        STU.findOne({where:{name:"kinnera"}},function (err, response) {
+                console.log('response');
+                callback(null, response);
 
-   /* STU.delete=function(id,callbacck){
-        console.log(id);
-        STU.findById(id,function(err,instance){
-            var response=instance.delete+"deleted record";
-            console.log(response);
-            callback(null,response);
+            })
+
+        };
     
-        });
-    }
     STU.remoteMethod(
-        'delete',{
-            returns:{
-               root:true,
-               type:"number"
+        'getRecord', {
+            returns: {
+                root: true,
+                type: "object"
             },
-            accepts:{
-                arg:"id",
-                type:"number"
-    
+            accepts: [{
+                arg: "name",
+                type: "string",
+                http: {
+                    source: 'query'
+                }
+
+            }],
+            http: {
+                path: "/getRecord", verb: "get"
             },
-            http:{
-                path:'/delete',verb:'del'
-            },
-    
+
         }
     )
-    };*/
-
-
-    /*STU.getId=function(id,callbacck){
-        
-        STU.findOne({where:{email_id:"ramya@gmail.com"}},function(err,instance){
-            var response="student id is:"+instance.id;
-            console.log(response);
-            callback(null,response);
-    
-        });
     }
-    STU.remoteMethod(
-        'getId',{
-            returns:{
-               root:true,
-               type:"number"
-            },
-            accepts:{
-                arg:"name",
-                type:"string",
-                required:false
-            },
-            http:{
-                path:'/getid',verb:'get'
-            },
-    
-        }
-    )
-    };*/
 
 
-    STU.updateName = function (input, callback) {
+      STU.updateName = function (input, callback) {
         STU.findById(input.id, function (err, response) {
             var updateObj = response;
             updateObj.name = input.name;
@@ -182,4 +97,85 @@ module.exports = function (STU) {
 
         }
     )
-}
+    }
+
+
+     STU.deleteRecord=function(id,callbacck){
+        console.log(id);
+        STU.destroyById(id,function(err,instance){
+            var response=instance.delete+"deleted record";
+            console.log(response);
+            callback(null,response);
+    
+        });
+    }
+    STU.remoteMethod(
+        'deleteRecord',{
+            returns:{
+               root:true,
+               type:"number"
+            },
+            accepts:{
+                arg:"id",
+                type:"number"
+    
+            },
+            http:{
+                path:'/deleteRecord',verb:'del'
+            },
+    
+        }
+    )
+    }
+
+
+
+    STU.createNewRecord=function(input,callback){
+        STU.create(data,function(err,response){
+            var response="enter new record:"+instance.data;
+            console.log(response);
+            callback(null,response);
+        }),
+            
+    STU.remoteMethod(
+          'createNewRecord',{
+              returns:{
+                  root:true,
+                  type:"Object"
+              },
+              accepts:[{
+                  arg:"input",
+                  type:"object",
+                  http:{source:'body'}
+              }],
+              http:{
+                  path:'/createNewRecord', verb:'post'
+              }
+
+              
+          }
+
+
+    )
+
+        }}*/
+    
+
+ 
+           
+       
+   
+     
+ 
+  
+
+
+
+ 
+
+
+    
+
+
+  
+
